@@ -111,18 +111,38 @@
     </style>
 </head>
 <body>
-    <a href="index.html" class="back-link">← Back to Home</a>
-    
+   <a href="index.html" class="back-link">← Back to Home</a>
+
     <div class="container">
         <h1>Delete Account</h1>
         <p>Please enter your email address to request account deletion. This action cannot be undone.</p>
-        
-        <form action="mailto:nearby.feedback@gmail.com" method="POST" enctype="text/plain">
+
+        <form id="deletionForm" onsubmit="handleSubmit(event)">
             <div class="form-group">
-                <input type="email" name="email" placeholder="Enter your email address" required>
+                <input type="email" id="emailInput" name="email" placeholder="Enter your email address" required>
             </div>
             <button type="submit">Request Deletion</button>
         </form>
+        <div id="message" class="message"></div>
     </div>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            const email = document.getElementById('emailInput').value;
+            const messageDiv = document.getElementById('message');
+            
+            const mailtoLink = `mailto:nearby.feedback@gmail.com?subject=Account Deletion Request&body=Please delete account for user email: ${email}`;
+            
+            try {
+                window.location.href = mailtoLink;
+                messageDiv.textContent = 'Email client opened. Please send the pre-filled email to complete your request.';
+                messageDiv.classList.add('success');
+            } catch (error) {
+                messageDiv.textContent = 'Error opening email client. Please try again.';
+                messageDiv.classList.add('error');
+            }
+        }
+    </script>
 </body>
 </html>
