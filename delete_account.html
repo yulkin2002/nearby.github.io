@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account - Nearby</title>
+    <style>
+        :root {
+            --dark-purple: #2E3192;
+            --text-dark: #424242;
+            --text-light: #66727C;
+            --bg-primary: #F7F4FF;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 90%;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(46, 49, 146, 0.1);
+        }
+
+        h1 {
+            color: var(--dark-purple);
+            font-size: 2.25rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+        }
+
+        p {
+            color: var(--text-dark);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        input[type="email"] {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        button {
+            background-color: var(--dark-purple);
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        .back-link {
+            color: var(--dark-purple);
+            text-decoration: none;
+            padding: 1rem;
+            align-self: flex-start;
+            margin: 1rem 0 0 5%;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">← Back to Home</a>
+    
+    <div class="container">
+        <h1>Delete Account</h1>
+        <p>Please enter your email address to request account deletion. This action cannot be undone.</p>
+        
+        <form action="mailto:nearby.feedback@gmail.com" method="POST" enctype="text/plain">
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Enter your email address" required>
+            </div>
+            <button type="submit">Request Deletion</button>
+        </form>
+    </div>
+</body>
+</html>
